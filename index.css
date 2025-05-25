@@ -315,15 +315,3 @@ canvas#liquid-background {
 .menu ul li a:hover::after {
   transform: translateX(-50%) scaleX(1);
 }
-
-
-
-
-
-
-
-
-
-
-
-
