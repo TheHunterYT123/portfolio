@@ -1,8 +1,43 @@
+
+
+/* Elimina el outline (borde de foco) y el fondo azul al hacer clic o focus */
+button,
+a,
+.hamburger,
+.hamburger * {
+  outline: none !important;
+  -webkit-tap-highlight-color: transparent; /* Quita el highlight azul en móviles */
+}
+
+/* Si usas elementos <a> que siguen recibiendo focus para accesibilidad,
+puedes controlar el outline de esta forma */
+a:focus, button:focus, .hamburger:focus {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* Si quieres permitir selección en inputs, agrega esta excepción */
+input, textarea {
+  -webkit-user-select: text;
+  -moz-user-select: text;
+  -ms-user-select: text;
+  user-select: text;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+  user-select: none;         /* estándar */
 }
+
+body, p, div, span, h1, h2, h3, h4, h5, h6 {
+  user-select: text;
+}
+
 html {
   height: 100%;
   scroll-behavior: smooth;
@@ -327,7 +362,7 @@ canvas#liquid-background {
 
 .container {
   position: absolute;
-  top: 20%;
+  top: 15%;
   left: 5%;
   display: flex;
   flex-direction: column;
@@ -407,8 +442,8 @@ h3 {
 .btn {
   flex: 1;
   background: 
-    linear-gradient(#19192c, #19192c) padding-box, /* fondo interior */
-    linear-gradient(90deg, #5d4eff, #a14eff) border-box; /* borde */
+    linear-gradient(#19192c, #19192c) padding-box,
+    linear-gradient(90deg, #5d4eff, #a14eff) border-box;
   color: white;
   text-decoration: none;
   text-align: center;
@@ -421,32 +456,84 @@ h3 {
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.05);
   border: 2px solid transparent;
   border-radius: 9999px;
+  transition: background 0.3s;
+}
+
+/* Fondo interior al hacer clic */
+.btn.active {
+  background: 
+    linear-gradient(90deg, #5d4eff, #a14eff) padding-box, /* fondo nuevo */
+    linear-gradient(90deg, #5d4eff, #a14eff) border-box; /* mismo borde */
 }
 
 
 .socials {
   display: flex;
-  gap: 24px;
+  gap: 35px;
   justify-content: center;
   width: 100%;
   font-size: 1.2rem;
-  color: white;
+  color: white; /* Esto afecta texto pero no los íconos SVG */
 }
-
 .socials i {
+  color: white; /* Íconos en blanco */
   background: linear-gradient(90deg, #5d4eff, #a14eff);
   border-radius: 20%;      /* Hace el fondo circular */
   padding: 12px;           /* Espacio dentro del círculo */
   display: inline-flex;    /* Para que padding y border-radius funcionen bien */
   align-items: center;     /* Centrar ícono vertical */
   justify-content: center; /* Centrar ícono horizontal */
-  transition: background-color 0.3s ease;
-  cursor: pointer;         /* Cambia el cursor para indicar que es clickable */
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;         /* Cursor pointer */
   box-shadow: 0 0 15px 5px rgba(93, 78, 255, 0.6);
 }
-
 .socials i:hover {
-  background-color: #555;  /* Cambia el color de fondo al hacer hover */
+  background-color: #555;  /* Cambia fondo al hacer hover */
+  transform: scale(1.2);   /* Agranda ícono */
+}
+.socials i:focus {
+  transform: scale(1.2);
+  outline: none;
+}
+/* TOOLTIP SOLO PARA DISCORD */
+.socials a[aria-label="Discord"] {
+  position: relative;
+  text-decoration: none;
+}
+.socials a[aria-label="Discord"] .tooltip {
+  visibility: hidden;
+  opacity: 0;
+  width: max-content;
+  background-color: black;
+  color: white;
+  text-align: center;
+  border-radius: 6px;
+  padding: 6px 8px;
+  position: absolute;
+  bottom: 130%; /* encima del ícono */
+  left: 50%;
+  transform: translateX(-50%);
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  font-size: 0.9rem;
+  pointer-events: none;
+  user-select: none;
+  z-index: 10;
+}
+.socials a[aria-label="Discord"] .tooltip::after {
+  content: "";
+  position: absolute;
+  top: 100%; /* abajo del tooltip */
+  left: 50%;
+  transform: translateX(-50%);
+  border-width: 5px;
+  border-style: solid;
+  border-color: black transparent transparent transparent;
+}
+.socials a[aria-label="Discord"]:hover .tooltip,
+.socials a[aria-label="Discord"]:focus .tooltip {
+  visibility: visible;
+  opacity: 1;
 }
 
 .animate-appear {
@@ -455,4 +542,98 @@ h3 {
   animation-duration: 0.6s;
   animation-fill-mode: forwards;
   animation-timing-function: ease-out;
+}
+
+
+.imagen-wrapper {
+  display: none;
+}
+
+@media (min-width: 410px) {
+  .imagen-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: fixed;   /* Aquí fijo, no en imagen-container */
+    top: 0;
+    bottom: 0;
+    right: 0px;
+
+    z-index: 10;
+    padding: 4px; /* Grosor del borde */
+    background: linear-gradient(90deg, #5d4eff, #a14eff);
+    border-radius: 70% / 70%;
+
+    width: 110px; /* 110px + 2*4px padding */
+    height: 160px; /* 160px + 2*4px padding */
+    box-sizing: content-box; /* Que el padding sea fuera del tamaño */
+  }
+}
+
+.imagen-container {
+  display: none;
+}
+
+@media (min-width: 410px) {
+  .imagen-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+
+    position: relative; /* Cambiado de fixed a relative */
+    width: 110px;
+    height: 160px;
+
+    border-radius: 70% / 70%;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .mine-image {
+    width: 150%;
+    height: 150%;
+    object-fit: cover;
+    object-position: 30px center;
+    transform: none;
+  }
+}
+
+.tech-tags span {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+.tech-tags span.visible {
+  opacity: 1;
+}
+
+.socials a {
+  opacity: 0;
+  transform: scale(1);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.socials a.animate-social {
+  opacity: 1;
+  transform: scale(1.4);
+}
+
+.socials a.animate-social.reset {
+  transform: scale(1);
+}
+
+@keyframes buttonScale {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.buttons .btn.animate-button {
+  animation: buttonScale 0.3s ease;
 }
