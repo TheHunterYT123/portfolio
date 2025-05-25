@@ -16,6 +16,12 @@ body {
   font-family: 'Poppins', sans-serif;
 }
 
+canvas#liquid-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 .welcome-screen {
   color: white;
   display: flex;
@@ -309,6 +315,9 @@ body {
 .menu ul li a:hover::after {
   transform: translateX(-50%) scaleX(1);
 }
+
+
+
 
 
 
