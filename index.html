@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="../CSS/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <title>Welcome Animation</title>
+<script>
+  // Show main site after welcome animation
+  
+  window.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.querySelector('.welcome-screen').style.display = 'none';
+      document.querySelector('.main-site').style.display = 'block';
+    }, 4000);
+  });
+  
+</script>
+
+
+
+</head>
+<body>
+  <div class="welcome-screen">
+    <div class="icons">
+      <i class="fas fa-code"></i>
+      <i class="fas fa-user"></i>
+      <i class="fas fa-lightbulb"></i>
+    </div>
+    <h1>Welcome To My<br><span>Portfolio Website</span></h1>
+    <div class="typing-container hidden">
+      <span class="typing-text">Made by Nelson Dominguez</span>
+    </div>
+  </div>
+
+  <div class="main-site">
+  <div class="hamburger" onclick="toggleMenu(this)">
+    <div class="line line1"></div>
+    <div class="line line2"></div>
+    <div class="line line3"></div>
+  </div>
+
+  <div class="header">
+    <div class="bar bar1"></div>
+    <div class="bar bar2"></div>
+    <div class="bar bar3"></div>
+    <div class="menu" id="menu">
+      <div>
+          <ul>
+              <li><a href="#top">Home</a></li> 
+              <li><a href="#top">Projects</a></li>
+              <li><a href="#top">Contact</a></li>
+          </ul>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+  </div>
+
+
+  <script>
+  // Selecciona los íconos y el texto
+  const icons = document.querySelector('.icons');
+  const typingContainer = document.querySelector('.typing-container');
+  const typingText = document.querySelector('.typing-text');
+
+  // Duración total de la animación fadeIn de los íconos (1.5s + delay 1s)
+  // Según tu CSS: animation-delay: 1s; animation-duration: 1.5s;
+  const totalAnimationTime = 1700; // 1s delay + 1.5s duration + margen
+
+  setTimeout(() => {
+    // Quitamos la clase que oculta el texto
+    typingContainer.classList.remove('hidden');
+
+    // Activamos la animación typing
+    typingText.classList.add('active');
+  }, totalAnimationTime);
+
+
+
+
+let open = false;
+
+const line1 = document.querySelector('.line1');
+const line2 = document.querySelector('.line2');
+const line3 = document.querySelector('.line3');
+
+// Ajusta el tamaño inicial cuando carga la página para que siempre estén diferentes
+line1.style.width = '40px';
+line2.style.width = '30px';
+line3.style.width = '20px';
+
+function toggleMenu(button) {
+  const bar1 = document.querySelector('.bar1');
+  const bar2 = document.querySelector('.bar2');
+  const bar3 = document.querySelector('.bar3');
+  const menu = document.getElementById('menu');
+
+  if (!open) {
+    // Activar (abrir) — Las 3 líneas igual a 30px
+    button.classList.add('active');
+
+    line1.style.width = '40px';
+    line2.style.width = '40px';
+    line3.style.width = '40px';
+
+    bar1.style.transitionDelay = '0s';
+    bar1.style.width = '100%';
+
+    setTimeout(() => {
+      bar2.style.transitionDelay = '0s';
+      bar2.style.width = '100%';
+    }, 300);
+
+    setTimeout(() => {
+      bar3.style.transitionDelay = '0s';
+      bar3.style.width = '100%';
+    }, 600);
+
+    setTimeout(() => {
+      menu.classList.add('show');
+    }, 1000);
+
+    open = true;
+  } else {
+    // Desactivar (cerrar) — Vuelven a tamaños diferentes (triángulo invertido)
+    menu.classList.remove('show');
+
+    bar3.style.transitionDelay = '0s';
+    bar3.style.width = '0%';
+
+    setTimeout(() => {
+      bar2.style.transitionDelay = '0s';
+      bar2.style.width = '0%';
+    }, 300);
+
+    setTimeout(() => {
+      bar1.style.transitionDelay = '0s';
+      bar1.style.width = '0%';
+    }, 600);
+
+    setTimeout(() => {
+      button.classList.remove('active');
+
+      line1.style.width = '40px';  // base más larga
+      line2.style.width = '30px';  // mediana
+      line3.style.width = '20px';  // punta más pequeña
+
+      open = false;
+    }, 900);
+  }
+}
+</script>
+</body>
+</html>
