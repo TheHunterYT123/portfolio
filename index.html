@@ -3,10 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="../CSS/index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <canvas id="liquid-background"></canvas>
   <title>Welcome Animation</title>
 <script>
+  const canvas = document.getElementById('liquid-background');
+  const ctx = canvas.getContext('2d');
+  let w, h, t = 0;
+
+  function resize() {
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+  }
+
+  window.addEventListener('resize', resize);
+  resize();
+
+  function lerp(a, b, t) {
+    return a + (b - a) * t;
+  }
+
+  function hexToRgb(hex) {
+    const bigint = parseInt(hex.slice(1), 16);
+    return {
+      r: (bigint >> 16) & 255,
+      g: (bigint >> 8) & 255,
+      b: bigint & 255
+    };
+  }
+
+  const colorA = hexToRgb("#1a0033");
+  const colorB = hexToRgb("#1e0a57");
+
+  function draw() {
+    t += 0.01;
+    const imgData = ctx.createImageData(w, h);
+    for (let y = 0; y < h; y++) {
+      for (let x = 0; x < w; x++) {
+        const i = (y * w + x) * 4;
+        const wave = Math.sin(x * 0.008 + t) + Math.cos(y * 0.008 + t * 0.8);
+        const mix = (wave + 2) / 4;
+
+        const r = Math.floor(lerp(colorA.r, colorB.r, mix));
+        const g = Math.floor(lerp(colorA.g, colorB.g, mix));
+        const b = Math.floor(lerp(colorA.b, colorB.b, mix));
+
+        imgData.data[i] = r;
+        imgData.data[i + 1] = g;
+        imgData.data[i + 2] = b;
+        imgData.data[i + 3] = 255;
+      }
+    }
+    ctx.putImageData(imgData, 0, 0);
+    requestAnimationFrame(draw);
+  }
+
+  draw();
+
+
+
+
+
+
+
+
   // Show main site after welcome animation
   
   window.addEventListener('DOMContentLoaded', () => {
