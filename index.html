@@ -1,13 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!-- Charset y Viewport -->
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Título y descripción -->
+  <title>Nelson Dominguez | Web Developer Portfolio</title>
+  <meta name="description" content="Hi! I'm Nelson, a 14-year-old creative web developer building modern, responsive, and animated websites for businesses. Check out my work!">
+
+  <!-- Palabras clave para SEO -->
+  <meta name="keywords" content="Nelson Dominguez, Web Developer, Portfolio, HTML, CSS, JavaScript, Responsive Websites, Frontend Developer, Las Vegas, Freelance">
+
+  <!-- Autor -->
+  <meta name="author" content="Nelson Dominguez Martinez" />
+
+  <!-- Estilos principales -->
   <link rel="stylesheet" href="index.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- AOS Animations -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <!-- Colores para navegadores móviles -->
+  <meta name="theme-color" content="#2b0675">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- Open Graph (para compartir en redes sociales) -->
+  <meta property="og:title" content="Nelson Dominguez | Web Developer Portfolio">
+  <meta property="og:description" content="Modern, responsive, and animated websites by Nelson. Check out my projects and services!">
+  <meta property="og:url" content="https://thehunteryt123.github.io/portfolio/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nelson Dominguez | Web Developer">
+  <meta name="twitter:description" content="14-year-old web developer building modern websites.">
+
+  <!-- Preload recursos importantes -->
+  <link rel="preload" href="/assets/hero-bg.jpg" as="image">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" as="style">
+
+  <!-- Scripts opcionales para animaciones o efectos -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+  <script src="main.js" defer></script>
+
+  <!-- Canvas de fondo animado -->
   <canvas id="liquid-background"></canvas>
-  <title>Welcome Animation</title>
 <script>
   function loadStaticBackground() {
     document.body.style.background = "linear-gradient(135deg, #1a0033, #1e0a57)";
@@ -133,7 +177,7 @@
       <div>
           <ul>
               <li><a href="#top">Home</a></li> 
-              <li><a href="#top">Projects</a></li>
+              <li><a href="#projects">Projects</a></li>
               <li><a href="#top">Contact</a></li>
           </ul>
       </div>
@@ -150,7 +194,7 @@
     <h3>Nelson Dominguez Martinez</h3>
     <div class="imagen-wrapper">
       <div class="imagen-container">
-        <img src="me.png" alt="Me" class="mine-image">
+        <img src="me.jpg" alt="Me" class="mine-image">
       </div>
     </div>
 
@@ -167,7 +211,7 @@
     </div>
 
     <div class="buttons">
-      <a href="#" class="btn">Projects <i class="fas fa-arrow-up-right-from-square"></i></a>
+      <a href="#projects" class="btn">Projects <i class="fas fa-arrow-up-right-from-square"></i></a>
       <a href="#" class="btn">Contact <i class="fas fa-envelope"></i></a>
     </div>
 
@@ -207,7 +251,7 @@
 
 
 
-    <div class="ndm-portfolio-showcase-container" data-aos="fade-up">
+    <div class="ndm-portfolio-showcase-container" data-aos="fade-up" data-aos-offset="100" id="projects">
       <h1 class="principal-text2">
         <span class="white" translate="no">Portfolio</span>
         <span class="gradient" translate="no">Showcase</span>
@@ -229,7 +273,7 @@
     <!-- Divs que cambiarán -->
     <div id="cards-container">
       <div data-aos="fade-up" class="card" data-title="Restaurant Website"
-        data-video="https://www.youtube.com/embed/hnt3zyxn6Vw"
+        data-video="https://www.youtube.com/embed/hnt3zyxn6Vw?autoplay=1&mute=1"
         data-description="BiteLab is a responsive restaurant website built with HTML, CSS, and JavaScript, featuring smooth animations and clean design.">
         <div class="card-image">
           <img src="restaurant.png" alt="Restaurant">
@@ -248,7 +292,7 @@
         </div>
       </div>
       <div data-aos="fade-up" class="card" data-title="AI-Powered Gym"
-        data-video="https://www.youtube.com/embed/6A0defZy3UE"
+        data-video="https://www.youtube.com/embed/6A0defZy3UE?autoplay=1&mute=1"
         data-description="A gym website powered by AI, featuring smart workout suggestions, clean design, and smooth user experience.">
         <div class="card-image">
           <img src="AIgymweb.png" alt="AI Gym Web">
@@ -267,7 +311,7 @@
         </div>
       </div>
       <div data-aos="fade-up" class="card" data-title="Professional CV"
-        data-video="https://www.youtube.com/embed/AGDQ1qdggTY"
+        data-video="https://www.youtube.com/embed/AGDQ1qdggTY?autoplay=1&mute=1"
         data-description="Spanish professional CV website with a clean, modern design to showcase skills and experience clearly.">
         <div class="card-image">
           <img src="CV.png" alt="CV Cecy">
@@ -286,7 +330,7 @@
         </div>
       </div>
       <div data-aos="fade-up" class="card" data-title="Login & Register"
-        data-video="https://www.youtube.com/embed/5COuHQdk1Es"
+        data-video="https://www.youtube.com/embed/WmWpw6MeV-g?autoplay=1&mute=1"
         data-description="A stylish login and registration website with dark, hell-inspired aesthetics, featuring smooth animations and a user-friendly design.">
         <div class="card-image">
           <img src="Login.png" alt="Login & Register">
@@ -316,7 +360,70 @@
 
     </div>
     <div id="prueba2" style="display:none;">
-      
+      <div data-aos="fade-up" class="card" data-title="Restaurant Website"
+        data-video="https://www.youtube.com/embed/xOyujUcvz8A?autoplay=1&mute=1"
+        data-description="BiteLab is a responsive restaurant website built with HTML, CSS, and JavaScript, featuring smooth animations and clean design.">
+        <div class="card-image">
+          <img src="restaurant.png" alt="Restaurant">
+        </div>
+        <div class="card-title">Restaurant</div>
+        <div class="responsive-tag">
+          <img src="https://img.icons8.com/?size=100&id=32258&format=png&color=000000" />
+        </div>
+        <div class="card-description">
+          BiteLab is a responsive restaurant website built with HTML, CSS, and JavaScript, featuring smooth animations and clean design.
+        </div><br>
+        <div class="technologies">
+          <div class="tech"><img src="https://img.icons8.com/color/48/html-5.png" /> HTML</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/css3.png" /> CSS</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/javascript.png" /> JS</div>
+        </div>
+      </div>
+      <div data-aos="fade-up" class="card" data-title="Professional CV"
+        data-video="https://www.youtube.com/embed/kjrVQhia9jE?autoplay=1&mute=1"
+        data-description="Spanish professional CV website with a clean, modern design to showcase skills and experience clearly.">
+        <div class="card-image">
+          <img src="CV.png" alt="CV Cecy">
+        </div>
+        <div class="card-title">Professional CV</div>
+        <div class="responsive-tag">
+          <img src="https://img.icons8.com/?size=100&id=32258&format=png&color=000000" />
+        </div>
+        <div class="card-description">
+          Spanish professional CV website with a clean, modern design to showcase skills and experience clearly.
+        </div><br>
+        <div class="technologies">
+          <div class="tech"><img src="https://img.icons8.com/color/48/html-5.png" /> HTML</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/css3.png" /> CSS</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/javascript.png" /> JS</div>
+        </div>
+      </div>
+      <div data-aos="fade-up" class="card" data-title="Login & Register"
+        data-video="https://www.youtube.com/embed/D7mOITzkak8?autoplay=1&mute=1"
+        data-description="A stylish login and registration website with dark, hell-inspired aesthetics, featuring smooth animations and a user-friendly design.">
+        <div class="card-image">
+          <img src="Login.png" alt="Login & Register">
+        </div>
+        <div class="card-title">Login & Register</div>
+        <div class="responsive-tag">
+          <img src="https://img.icons8.com/?size=100&id=32258&format=png&color=000000" />
+        </div>
+        <div class="card-description">
+          A stylish login and registration website with dark, hell-inspired aesthetics, featuring smooth animations and a user-friendly design.
+        </div><br>
+        <div class="technologies">
+          <div class="tech"><img src="https://img.icons8.com/color/48/html-5.png" /> HTML</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/css3.png" /> CSS</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/javascript.png" /> JS</div>
+        </div>
+      </div>
+
+
+
+
+
+
+
     </div>
     
 
@@ -324,7 +431,7 @@
 
   
 
-    <br><br><br><br><br><br>
+    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
 
 
@@ -546,16 +653,17 @@ window.addEventListener('DOMContentLoaded', () => {
   const buttons = document.querySelectorAll('.btn');
   buttons.forEach(btn => {
     btn.addEventListener('click', e => {
-      e.preventDefault();
       btn.classList.add('active');
-
+  
       setTimeout(() => {
         btn.classList.remove('active');
-      }, 300); // 2000ms = 2 segundos
+      }, 300);
+  
+      if (btn.getAttribute('href') === '#') {
+        e.preventDefault(); // Solo previene el scroll para este enlace "vacío"
+      }
     });
   });
-
-
 
 
 
@@ -574,20 +682,118 @@ window.addEventListener('DOMContentLoaded', () => {
   const btnMobile = document.getElementById('btnMobile');
   const prueba1 = document.getElementById('cards-container');
   const prueba2 = document.getElementById('prueba2');
-
-  btnDesktop.addEventListener('click', () => {
-    btnDesktop.classList.add('active');
-    btnMobile.classList.remove('active');
-    prueba1.style.display = 'grid';
-    prueba2.style.display = 'none';
-  });
-
+  
+  function animateCardsOut(container, direction, callback) {
+    const cards = container.querySelectorAll('.card');
+    let completed = 0;
+  
+    // Guarda la posición actual del scroll vertical
+    const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+  
+    cards.forEach((card, index) => {
+      card.classList.remove('fade-in');
+      card.classList.add(index % 2 === 0 ? 'card-exit-left' : 'card-exit-right');
+  
+      card.addEventListener('animationend', () => {
+        completed++;
+        if (completed === cards.length) {
+          callback();
+  
+          // Después de cambiar visibilidad, vuelve a poner el scroll en la posición guardada
+          window.scrollTo(0, scrollTop);
+        }
+      }, { once: true });
+    });
+  }
+  
+  function showContainer(container) {
+    container.style.display = 'grid';
+    const cards = container.querySelectorAll('.card');
+    cards.forEach(card => {
+      card.classList.remove('card-exit-left', 'card-exit-right');
+      card.classList.add('fade-in');
+    });
+  }
+  
   btnMobile.addEventListener('click', () => {
-    btnMobile.classList.add('active');
-    btnDesktop.classList.remove('active');
-    prueba1.style.display = 'none';
-    prueba2.style.display = 'block';
+    if (!btnMobile.classList.contains('active')) {
+      btnMobile.classList.add('active');
+      btnDesktop.classList.remove('active');
+  
+      animateCardsOut(prueba1, 'left', () => {
+        prueba1.style.display = 'none';
+        showContainer(prueba2);
+      });
+    }
   });
+  
+  btnDesktop.addEventListener('click', () => {
+    if (!btnDesktop.classList.contains('active')) {
+      btnDesktop.classList.add('active');
+      btnMobile.classList.remove('active');
+  
+      animateCardsOut(prueba2, 'right', () => {
+        prueba2.style.display = 'none';
+        showContainer(prueba1);
+      });
+    }
+  });
+
+
+
+
+let startX = 0;
+let endX = 0;
+let moved = false;
+
+function handleTouchStart(event) {
+  startX = event.touches[0].clientX;
+  moved = false;
+}
+
+function handleTouchMove(event) {
+  endX = event.touches[0].clientX;
+  if (Math.abs(endX - startX) > 10) {
+    moved = true;
+  }
+}
+
+function handleTouchEnd() {
+  if (!moved) return; // Si no se movió lo suficiente, permitir el click
+
+  const deltaX = endX - startX;
+
+  if (Math.abs(deltaX) > 50) { // Umbral mínimo para swipe
+    if (deltaX < 0 && !btnMobile.classList.contains('active')) {
+      btnMobile.click(); // Swipe izquierda → Mobile
+    } else if (deltaX > 0 && !btnDesktop.classList.contains('active')) {
+      btnDesktop.click(); // Swipe derecha → Desktop
+    }
+  }
+
+  // Reset
+  startX = 0;
+  endX = 0;
+  moved = false;
+}
+
+// Contenedores de swipe
+const swipeArea = document.getElementById('cards-container');
+const swipeAreaMobile = document.getElementById('prueba2');
+
+// Asignar eventos
+[swipeArea, swipeAreaMobile].forEach(area => {
+  area.addEventListener('touchstart', handleTouchStart, { passive: true });
+  area.addEventListener('touchmove', handleTouchMove, { passive: true });
+  area.addEventListener('touchend', handleTouchEnd);
+});
+
+
+
+
+
+
+
 
 
 
@@ -677,6 +883,20 @@ document.addEventListener('click', (e) => {
 });
 
 
+
+const menuLinks = document.querySelectorAll('#menu a');
+
+// Agrega un event listener a cada enlace
+menuLinks.forEach(link => {
+  link.addEventListener('click', () => {
+    if (open) {
+      // Simula el segundo clic al botón hamburguesa
+      toggleMenu(document.querySelector('.hamburger'));
+    }
+  });
+});
+
 </script>
 </body>
 </html>
+
