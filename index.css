@@ -1,5 +1,3 @@
-
-
 /* Elimina el outline (borde de foco) y el fondo azul al hacer clic o focus */
 button,
 a,
@@ -282,7 +280,7 @@ canvas#liquid-background {
 
 .bar {
   position: absolute;
-  height: 33.33%;
+  height: 34.33%;
   width: 0%;
   background-color: rgba(0, 0, 0, 0.849); /* como tu "highlight" glow */
 }
@@ -373,12 +371,13 @@ canvas#liquid-background {
   
 }
 
-.principal-text {
+.principal-text, .principal-text2 {
   font-size: 3rem;
   font-weight: 800;
   line-height: 1.2;
   text-shadow: 0 0px 50px rgb(164, 131, 248);
 }
+
 
 .white {
   color: white;
@@ -395,6 +394,11 @@ canvas#liquid-background {
   -webkit-text-fill-color: transparent;
 
   text-shadow: 0 0px 50px rgb(135, 90, 250);
+}
+
+.principal-text2 {
+  text-align: center;    /* centra los <span> dentro del <h1> */
+  margin: 0 auto;        /* centra el propio <h1> en su contenedor */
 }
 
 h3 {
@@ -636,4 +640,308 @@ h3 {
 
 .buttons .btn.animate-button {
   animation: buttonScale 0.3s ease;
+}
+
+.underline {
+  width: 200px;
+  height: 5px;
+  background: linear-gradient(90deg, #5d4eff, #a14eff);
+  margin: 5px auto;
+  border-radius: 50px;
+  
+  /* Agregar estas propiedades para la animación */
+  transform-origin: center;
+  transform: scaleX(0);
+  transition: transform 0.5s ease-out;
+}
+
+/* Clase para animar */
+.underline.animate-grow {
+  transform: scaleX(1);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.description-text2 {
+  max-width: 700px;        /* para que no sea muy ancho y fácil de leer */
+  margin: 0 auto;          /* centrar horizontalmente */
+  color: #ffffffde;          /* texto blanco */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* buena tipografía legible y moderna */
+  font-size: 0.9rem;       /* tamaño legible */
+  line-height: 1.4;        /* espacio entre líneas para mejor lectura */
+  text-align: justify;     /* justificar el texto */
+  text-align-last: center; /* la última línea centrada para que quede bonito */
+  padding: 10px 20px;      /* espacio interno para que respire el texto */
+  user-select: text;       /* permitir selección del texto */
+  /* Opcional: sombra sutil para que destaque en fondos oscuros */
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+
+.view-buttons {
+  text-align: center;
+  margin-top: 20px;
+  width: 100%;
+}
+.view-button {
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 600;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  cursor: pointer;
+  padding: 8px 20px;
+  border-radius: 6px;
+  color: #ffffff;
+  background: #00000031;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+.view-button.active {
+  background: linear-gradient(90deg, #5d4eff, #a14eff);
+  color: #000000;
+}
+.view-button:hover:not(.active) {
+  color: #aaaaaa;
+}
+.view-button:focus {
+  outline: none;
+}
+
+
+
+
+
+
+
+
+
+#cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 18px;
+  max-width: 400px; /* o el ancho que quieras */
+  margin: 0 auto;
+}
+.card {
+  position: relative;
+  background-color: #4b1fa4;
+  border-radius: 15px;
+  width: 180px;
+  padding: 10px;
+  box-sizing: border-box;
+  color: rgb(255, 255, 255);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 0;
+  border: none;
+  overflow: visible; /* para que no se corte ::before */
+  margin-left: -5%;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  top: -1px; 
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #5d4eff, #a14eff, #5d4eff);
+  background-size: 200% 100%;
+  animation: moveGradient 3s linear infinite;
+  z-index: -1;
+}
+
+/* Para tapar el centro y que solo se vea el borde */
+.card::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: #200e46; /* mismo color de fondo que la card */
+  border-radius: 12px; /* un poco menor que el borde */
+  z-index: -1;
+}
+
+@keyframes moveGradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+.card-image {
+  background-color: black;
+  height: 100px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  position: relative; /* para contener overlay */
+  overflow: hidden;
+}
+
+.card-image::before {
+  content: "Click to view";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-weight: bold;
+  font-size: 16px;
+  background: linear-gradient(190deg, #5d4eff, #a14eff, #5d4eff);
+  padding: 8px 12px;
+  border-radius: 8px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  width: 80%;
+  text-align: center;
+  box-sizing: border-box;
+  z-index: 1;
+}
+
+.card-image::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(185, 185, 185, 0.76);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover .card-image::before,
+.card:hover .card-image::after {
+  opacity: 1;
+}
+
+.card-image.active::before,
+.card-image.active::after {
+  opacity: 1;
+}
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.card-title {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+.responsive-tag {
+  position: absolute;
+  top: 38%;
+  left: 77%;
+  width: 31px;
+  background-color: #a14eff;
+  display: inline-flex;
+  align-items: center;
+  padding: 1px 3px;
+  border-radius: 12px;
+  font-size: 12px;
+  gap: 4px;
+  margin-bottom: 6px;
+}
+.responsive-tag img {
+  width: 25px;
+  height: 25px;
+}
+.card-description {
+  font-size: 12px;
+  line-height: 1.2;
+  margin-bottom: 8px;
+}
+.technologies {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  gap: 5px;
+}
+.tech {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  border-radius: 6px;
+  padding: 2px 6px;
+  font-size: 12px;
+  color: black;
+  font-weight: bold;
+}
+.tech img {
+  width: 12px;
+  margin-right: 2px;
+}
+
+
+
+.__overlay-modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.__overlay-modal.hidden {
+  display: none;
+}
+
+.__modal-content {
+  background: linear-gradient(190deg, #3e34aa, #561f96, #2f2694);
+  color: white;
+  padding: 20px;
+  width: 95vw;
+  max-width: 700px;
+  border-radius: 8px;
+  position: relative;
+}
+
+.__modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.__close-btn {
+  background: none;
+  border: none;
+  font-size: 54px;
+  cursor: pointer;
+}
+
+.__modal-video iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+  margin: 15px 0;
+}
+
+body.modal-open {
+  overflow: hidden; /* bloquea scroll */
 }
