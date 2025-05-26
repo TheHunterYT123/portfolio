@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="index.css" />
+  <link rel="stylesheet" href="../CSS/index.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
   <canvas id="liquid-background"></canvas>
   <title>Welcome Animation</title>
 <script>
@@ -103,11 +104,6 @@
 
 
 
-
-
-
-
-
 </head>
 <body>
   <div class="welcome-screen">
@@ -147,8 +143,8 @@
 
   <div class="container">
     <h1 class="principal-text">
-      <span class="white">Frontend</span>
-      <span class="gradient">Developer</span>
+      <span class="white" translate="no">Frontend</span>
+      <span class="gradient" translate="no">Developer</span>
     </h1>
     
     <h3>Nelson Dominguez Martinez</h3>
@@ -167,7 +163,7 @@
       <span>HTML</span>
       <span>CSS</span>
       <span>Javascript</span>
-      <span>Python</span>
+      <span translate="no">Python</span>
     </div>
 
     <div class="buttons">
@@ -190,23 +186,164 @@
          tabindex="0" 
          role="button" 
          onclick="copyDiscordTag(event)"
+         translate="no"
       >
         <i class="fab fa-discord"></i>
-        <span class="tooltip">thehunter5293</span>
+        <span class="tooltip" translate="no">thehunter5293</span>
       </a>
     </div>
+    <div class="underline"></div>
+    <br><br><br><br><br><br>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        once: false // 👈 Esto permite que la animación se repita cuando subes y bajas
+      });
+    </script>
+
+
+
+
+
+    <div class="ndm-portfolio-showcase-container" data-aos="fade-up">
+      <h1 class="principal-text2">
+        <span class="white" translate="no">Portfolio</span>
+        <span class="gradient" translate="no">Showcase</span>
+      </h1>
+      <p class="description-text2">
+        This <strong>Portfolio Showcase</strong> is where I share my best projects and skills, showing how I’ve grown and what I’m passionate about as a young developer.
+      </p>
+    </div>
+    
+
+    <!-- Botones para cambiar vista -->
+    <div class="view-buttons" data-aos="fade-up">
+      <button id="btnDesktop" class="view-button active">Desktop</button>
+      <button id="btnMobile" class="view-button">Mobile</button>
+    </div><br>
+
+
+
+    <!-- Divs que cambiarán -->
+    <div id="cards-container">
+      <div data-aos="fade-up" class="card" data-title="Restaurant Website"
+        data-video="https://www.youtube.com/embed/hnt3zyxn6Vw"
+        data-description="BiteLab is a responsive restaurant website built with HTML, CSS, and JavaScript, featuring smooth animations and clean design.">
+        <div class="card-image">
+          <img src="restaurant.png" alt="Restaurant">
+        </div>
+        <div class="card-title">Restaurant</div>
+        <div class="responsive-tag">
+          <img src="https://img.icons8.com/?size=100&id=32258&format=png&color=000000" />
+        </div>
+        <div class="card-description">
+          BiteLab is a responsive restaurant website built with HTML, CSS, and JavaScript, featuring smooth animations and clean design.
+        </div><br>
+        <div class="technologies">
+          <div class="tech"><img src="https://img.icons8.com/color/48/html-5.png" /> HTML</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/css3.png" /> CSS</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/javascript.png" /> JS</div>
+        </div>
+      </div>
+      <div data-aos="fade-up" class="card" data-title="AI-Powered Gym"
+        data-video="https://www.youtube.com/embed/6A0defZy3UE"
+        data-description="A gym website powered by AI, featuring smart workout suggestions, clean design, and smooth user experience.">
+        <div class="card-image">
+          <img src="AIgymweb.png" alt="AI Gym Web">
+        </div>
+        <div class="card-title">AI-Powered Gym</div>
+        <div class="responsive-tag">
+          <img src="https://img.icons8.com/?size=100&id=32258&format=png&color=000000" />
+        </div>
+        <div class="card-description">
+          A gym website powered by AI, featuring smart workout suggestions, clean design, and smooth user experience.
+        </div><br>
+        <div class="technologies">
+          <div class="tech"><img src="https://img.icons8.com/color/48/html-5.png" /> HTML</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/css3.png" /> CSS</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/javascript.png" /> JS</div>
+        </div>
+      </div>
+      <div data-aos="fade-up" class="card" data-title="Professional CV"
+        data-video="https://www.youtube.com/embed/AGDQ1qdggTY"
+        data-description="Spanish professional CV website with a clean, modern design to showcase skills and experience clearly.">
+        <div class="card-image">
+          <img src="CV.png" alt="CV Cecy">
+        </div>
+        <div class="card-title">Professional CV</div>
+        <div class="responsive-tag">
+          <img src="https://img.icons8.com/?size=100&id=32258&format=png&color=000000" />
+        </div>
+        <div class="card-description">
+          Spanish professional CV website with a clean, modern design to showcase skills and experience clearly.
+        </div><br>
+        <div class="technologies">
+          <div class="tech"><img src="https://img.icons8.com/color/48/html-5.png" /> HTML</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/css3.png" /> CSS</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/javascript.png" /> JS</div>
+        </div>
+      </div>
+      <div data-aos="fade-up" class="card" data-title="Login & Register"
+        data-video="https://www.youtube.com/embed/5COuHQdk1Es"
+        data-description="A stylish login and registration website with dark, hell-inspired aesthetics, featuring smooth animations and a user-friendly design.">
+        <div class="card-image">
+          <img src="Login.png" alt="Login & Register">
+        </div>
+        <div class="card-title">Login & Register</div>
+        <div class="responsive-tag">
+          <img src="https://img.icons8.com/?size=100&id=32258&format=png&color=000000" />
+        </div>
+        <div class="card-description">
+          A stylish login and registration website with dark, hell-inspired aesthetics, featuring smooth animations and a user-friendly design.
+        </div><br>
+        <div class="technologies">
+          <div class="tech"><img src="https://img.icons8.com/color/48/html-5.png" /> HTML</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/css3.png" /> CSS</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/javascript.png" /> JS</div>
+        </div>
+      </div>
+
+
+
+
+
+
+
+
+
+
+    </div>
+    <div id="prueba2" style="display:none;">
+      
+    </div>
+    
 
     
 
   
 
-    
+    <br><br><br><br><br><br>
   </div>
 
 
 
 
-
+<div class="__overlay-modal hidden">
+  <div class="__modal-content">
+    <div class="__modal-header">
+      <h2 class="__modal-title">Project Title</h2>
+      <button class="__close-btn">&times;</button>
+    </div>
+    <div class="__modal-video">
+      <iframe src="" frameborder="0" allowfullscreen></iframe>
+    </div><br>
+    <div class="__modal-description">
+      This is a description of the selected project.
+    </div>
+  </div>
+</div>
 
 
 
@@ -340,8 +477,8 @@ window.addEventListener('DOMContentLoaded', () => {
 
     // Animar tech-tags uno por uno
     const techTags = document.querySelectorAll('.tech-tags span');
-    const animationTotalTime = (elementsToAnimate.length - 1) * 300;
-    const extraDelay = 500;
+    const animationTotalTime = (elementsToAnimate.length - 1) * 500;
+    const extraDelay = 800;
     const techTagStartTime = animationTotalTime + extraDelay;
     const delayPerTag = 100;
 
@@ -383,6 +520,14 @@ window.addEventListener('DOMContentLoaded', () => {
       }, buttonsStartTime + i * delayPerButton);
     });
 
+    const buttonsTotalTime = buttonsStartTime + buttons.length * delayPerButton;
+    const extraDelayAfterButtons = 500; // un pequeño delay antes de animar la línea
+    
+    setTimeout(() => {
+      const underline = document.querySelector('.underline');
+      underline.classList.add('animate-grow');
+    }, buttonsTotalTime + extraDelayAfterButtons);
+
   }, 4000);
 });
 
@@ -391,9 +536,9 @@ window.addEventListener('DOMContentLoaded', () => {
     event.preventDefault();
     const discordTag = 'thehunter5293'; // Cambia aquí tu tag completo
     navigator.clipboard.writeText(discordTag).then(() => {
-      alert('Discord tag copiado al portapapeles: ' + discordTag);
+      alert('Discord tag copied: ' + discordTag);
     }).catch(() => {
-      alert('Error al copiar al portapapeles');
+      alert('Error');
     });
   }
 
@@ -409,6 +554,128 @@ window.addEventListener('DOMContentLoaded', () => {
       }, 300); // 2000ms = 2 segundos
     });
   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  const btnDesktop = document.getElementById('btnDesktop');
+  const btnMobile = document.getElementById('btnMobile');
+  const prueba1 = document.getElementById('cards-container');
+  const prueba2 = document.getElementById('prueba2');
+
+  btnDesktop.addEventListener('click', () => {
+    btnDesktop.classList.add('active');
+    btnMobile.classList.remove('active');
+    prueba1.style.display = 'grid';
+    prueba2.style.display = 'none';
+  });
+
+  btnMobile.addEventListener('click', () => {
+    btnMobile.classList.add('active');
+    btnDesktop.classList.remove('active');
+    prueba1.style.display = 'none';
+    prueba2.style.display = 'block';
+  });
+
+
+
+
+
+
+
+const cards = document.querySelectorAll('.card');
+const modal = document.querySelector('.__overlay-modal');
+const modalTitle = modal.querySelector('.__modal-title');
+const modalDescription = modal.querySelector('.__modal-description');
+const modalVideoIframe = modal.querySelector('iframe');
+const closeBtn = modal.querySelector('.__close-btn');
+
+
+
+function getEmbedUrl(url) {
+  const videoIdMatch = url.match(/v=([^&]+)/);
+  if (videoIdMatch && videoIdMatch[1]) {
+    return `https://www.youtube.com/embed/${videoIdMatch[1]}`;
+  }
+  return url;
+}
+
+let activeCard = null;  // guarda la card que tiene click to view activa
+
+cards.forEach(card => {
+  card.addEventListener('click', (e) => {
+    e.stopPropagation();
+
+    const img = card.querySelector('.card-image');
+
+    if (activeCard !== card) {
+      // Si es una card diferente a la activa:
+      // 1. Quitar active a la anterior
+      if (activeCard) {
+        const prevImg = activeCard.querySelector('.card-image');
+        prevImg.classList.remove('active');
+      }
+      // 2. Activar esta
+      img.classList.add('active');
+      activeCard = card;
+
+      // Cerrar modal si estaba abierto
+      modal.classList.add('hidden');
+      modalVideoIframe.src = '';
+      document.body.classList.remove('modal-open');
+
+    } else {
+      // Si es la misma card que ya estaba activa
+      // Mostrar modal con video
+
+      const title = card.getAttribute('data-title') || 'Sin título';
+      const description = card.getAttribute('data-description') || 'Sin descripción';
+      const videoUrlRaw = card.getAttribute('data-video') || '';
+      const videoUrl = getEmbedUrl(videoUrlRaw);
+
+      modalTitle.textContent = title;
+      modalDescription.textContent = description;
+      modalVideoIframe.src = videoUrl;
+
+      modal.classList.remove('hidden');
+      document.body.classList.add('modal-open');
+    }
+  });
+});
+
+// Cerrar modal con botón
+closeBtn.addEventListener('click', () => {
+  modal.classList.add('hidden');
+  modalVideoIframe.src = '';
+  document.body.classList.remove('modal-open');
+});
+
+
+
+// Click fuera de cualquier card desactiva la imagen activa y cierra modal
+document.addEventListener('click', (e) => {
+  const clickedCard = e.target.closest('.card');
+  const isModalOpen = !modal.classList.contains('hidden');
+
+  if (!clickedCard && !isModalOpen && activeCard) {
+    const img = activeCard.querySelector('.card-image');
+    img.classList.remove('active');
+    activeCard = null;
+  }
+});
+
 
 </script>
 </body>
