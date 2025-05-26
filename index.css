@@ -1,3 +1,5 @@
+
+
 /* Elimina el outline (borde de foco) y el fondo azul al hacer clic o focus */
 button,
 a,
@@ -553,7 +555,7 @@ h3 {
   display: none;
 }
 
-@media (min-width: 410px) {
+@media (min-width: 400px) {
   .imagen-wrapper {
     display: flex;
     justify-content: flex-end;
@@ -579,7 +581,7 @@ h3 {
   display: none;
 }
 
-@media (min-width: 410px) {
+@media (min-width: 400px) {
   .imagen-container {
     display: flex;
     justify-content: flex-end;
@@ -727,7 +729,7 @@ h3 {
 
 
 
-#cards-container {
+#cards-container, #prueba2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
   gap: 18px;
@@ -944,4 +946,47 @@ h3 {
 
 body.modal-open {
   overflow: hidden; /* bloquea scroll */
+}
+
+
+
+
+
+
+
+
+.card-exit-left {
+  animation: slideLeft 0.5s forwards;
+}
+.card-exit-right {
+  animation: slideRight 0.5s forwards;
+}
+
+/* Animación de entrada */
+.fade-in {
+  animation: fadeIn 1.5s ease forwards;
+}
+
+/* Keyframes */
+@keyframes slideLeft {
+  to {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+}
+
+@keyframes slideRight {
+  to {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
