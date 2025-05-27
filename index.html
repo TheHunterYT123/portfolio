@@ -26,6 +26,7 @@
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet" />
 
   <!-- Colores para navegadores móviles -->
   <meta name="theme-color" content="#2b0675">
@@ -43,12 +44,11 @@
   <meta name="twitter:description" content="14-year-old web developer building modern websites.">
 
   <!-- Preload recursos importantes -->
-  <link rel="preload" href="/assets/hero-bg.jpg" as="image">
   <link rel="preload" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" as="style">
+  
 
   <!-- Scripts opcionales para animaciones o efectos -->
   <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
-  <script src="main.js" defer></script>
 
   <!-- Canvas de fondo animado -->
   <canvas id="liquid-background"></canvas>
@@ -149,7 +149,7 @@
 
 
 </head>
-<body>
+<body class="dark-mode">
   <div class="welcome-screen">
     <div class="icons">
       <i class="fas fa-code"></i>
@@ -184,6 +184,40 @@
     </div>
   </div>
 
+  <button class="config-button" aria-label="Abrir configuración">
+    <i class="fas fa-cog"></i>
+  </button>
+  
+<div class="config-menu" role="dialog" aria-modal="true" aria-labelledby="configTitle">
+  <h3 id="configTitle">Configuration</h3>
+
+
+  <div class="config-option language-option" tabindex="0" aria-expanded="false" aria-haspopup="true" role="button" aria-label="Select language">
+    <i class="fas fa-language"></i>
+    Languages
+    <i class="fas fa-chevron-down arrow"></i>
+  </div>
+  <div class="language-list" aria-hidden="true">
+    <button class="lang-btn active" data-lang="en" title="English">
+      🇬🇧 English
+    </button>
+    <button class="lang-btn" data-lang="es" title="Spanish">
+      🇪🇸 Spanish
+    </button>
+  </div>
+
+  <div class="config-option music-option" tabindex="0" role="button" aria-pressed="true" aria-label="Toggle music">
+    <i class="fas fa-volume-up" id="music-icon"></i>
+    Music
+  </div>
+  
+  <!-- Audio oculto -->
+  <audio id="music-audio" loop>
+    <source src="PortfolioAudio.mp4" type="audio/mpeg" />
+    Tu navegador no soporta audio.
+  </audio>
+</div>
+
 
   <div class="container">
     <h1 class="principal-text">
@@ -194,14 +228,20 @@
     <h3>Nelson Dominguez Martinez</h3>
     <div class="imagen-wrapper">
       <div class="imagen-container">
-        <img src="me.jpg" alt="Me" class="mine-image">
+        <img src="me.png" alt="Me" class="mine-image">
       </div>
     </div>
 
     <p class="description">
       14-year-old web developer fluent in English and Spanish,
       passionate about creating modern, functional, and responsive websites.
+      <span id="readMoreTrigger" class="read-toggle">Read More ▼</span>
     </p>
+    <div id="extraContent" class="extra-text">
+      I specialize in transforming ideas into interactive digital experiences, focusing on user-centered design,
+      clean code, and responsive layouts. With every project, I aim to deliver both aesthetics and functionality.
+      <span id="readLessTrigger" class="read-toggle">Read Less ▲</span>
+    </div>
 
     <div class="tech-tags">
       <span>HTML</span>
@@ -237,7 +277,7 @@
       </a>
     </div>
     <div class="underline"></div>
-    <br><br><br><br><br><br>
+    <br><br><br><br><br>
 
 
     <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
@@ -246,6 +286,7 @@
         once: false // 👈 Esto permite que la animación se repita cuando subes y bajas
       });
     </script>
+
 
 
 
@@ -417,6 +458,70 @@
           <div class="tech"><img src="https://img.icons8.com/color/48/javascript.png" /> JS</div>
         </div>
       </div>
+      <div data-aos="fade-up" class="card" id="hireMeCard" data-title="Hire me today"
+        data-description="Ready to take your project to the next level? Hire me now and let’s build something amazing together!">
+        <div class="card-image">Want yours?</div>
+        <div class="card-title">Hire me today</div>
+        <div class="responsive-tag">
+          <img src="https://img.icons8.com/?size=100&id=32258&format=png&color=000000" />
+        </div>
+        <div class="card-description">
+          Ready to take your project to the next level? Hire me now and let’s build something amazing together!
+        </div><br>
+        <div class="technologies">
+          <div class="tech"><img src="https://img.icons8.com/color/48/html-5.png" /> HTML</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/css3.png" /> CSS</div>
+          <div class="tech"><img src="https://img.icons8.com/color/48/javascript.png" /> JS</div>
+        </div>
+      </div>
+    </div><br><br>
+
+
+
+
+
+    <div>
+      <h1 class="principal-text2" data-aos="fade-up" style="text-align: center;">
+        <span class="white">Client</span>
+        <span class="gradient">Testimonials</span>
+      </h1>
+      <div class="testimonials-container" data-aos="fade-up">
+        <div class="x-testimonials-wrapper" data-aos="fade-up">
+          <div class="x-slider-container">
+            <div class="x-slider-track">
+              <article class="x-slide">
+                <h3 class="x-client-name">Sarah L.</h3>
+                <p class="x-client-review">Amazing website! Super professional and delivered exactly what I needed.</p>
+                <div class="x-stars" aria-label="5 stars">★★★★★</div>
+              </article>
+              <article class="x-slide">
+                <h3 class="x-client-name">James T.</h3>
+                <p class="x-client-review">Fast delivery, modern design, and mobile-friendly. Loved it!</p><br>
+                <div class="x-stars" aria-label="5 stars">★★★★★</div>
+              </article>
+              <article class="x-slide">
+                <h3 class="x-client-name">Emily R.</h3>
+                <p class="x-client-review">Great communication and outstanding design. Highly recommend!</p>
+                <div class="x-stars" aria-label="5 stars">★★★★★</div>
+              </article>
+            </div>
+          </div>
+          <nav class="x-dots" aria-label="Testimonial navigation">
+            <button class="x-dot active" aria-current="true" aria-label="Slide 1"></button>
+            <button class="x-dot" aria-label="Slide 2"></button>
+            <button class="x-dot" aria-label="Slide 3"></button>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="content-below"><br><br><br><br>
+
+
+
 
 
 
@@ -425,13 +530,6 @@
 
 
     </div>
-    
-
-    
-
-  
-
-    <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
   </div>
 
 
@@ -451,6 +549,8 @@
     </div>
   </div>
 </div>
+
+
 
 
 
@@ -896,7 +996,205 @@ menuLinks.forEach(link => {
   });
 });
 
+
+
+
+
+
+
+
+const track = document.querySelector('.x-slider-track');
+const dots = document.querySelectorAll('.x-dot');
+const slides = document.querySelectorAll('.x-slide');
+
+let currentIndex = 0;
+const totalSlides = slides.length;
+let autoSlideInterval;
+let userPaused = false;
+let userPauseTimeout;
+
+// Función para ir a una slide específica
+function goToSlide(index) {
+  currentIndex = index;
+  track.style.transform = `translateX(-${index * 100}%)`;
+
+  dots.forEach((dot, i) => {
+    dot.classList.toggle('active', i === index);
+  });
+}
+
+// Función para avanzar a la siguiente
+function nextSlide() {
+  const nextIndex = (currentIndex + 1) % totalSlides;
+  goToSlide(nextIndex);
+}
+
+// Auto-slide con reinicio si el usuario interactúa
+function startAutoSlide() {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(() => {
+    if (!userPaused) {
+      nextSlide();
+    }
+  }, 7000);
+}
+
+function pauseAutoSlide() {
+  userPaused = true;
+  clearTimeout(userPauseTimeout);
+  userPauseTimeout = setTimeout(() => {
+    userPaused = false;
+  }, 10000);
+  startAutoSlide(); // reinicia para que no salte en medio del tiempo de espera
+}
+
+// Click en los puntos
+dots.forEach((dot, index) => {
+  dot.addEventListener('click', () => {
+    goToSlide(index);
+    pauseAutoSlide();
+  });
+});
+
+
+track.addEventListener('touchstart', (e) => {
+  startX = e.touches[0].clientX;
+});
+
+track.addEventListener('touchend', (e) => {
+  endX = e.changedTouches[0].clientX;
+  const diff = endX - startX;
+
+  if (Math.abs(diff) > 50) {
+    if (diff < 0 && currentIndex < totalSlides - 1) {
+      goToSlide(currentIndex + 1);
+    } else if (diff > 0 && currentIndex > 0) {
+      goToSlide(currentIndex - 1);
+    }
+    pauseAutoSlide();
+  }
+});
+
+goToSlide(0);
+startAutoSlide();
+
+
+
+
+
+const readMore = document.getElementById("readMoreTrigger");
+const readLess = document.getElementById("readLessTrigger");
+const extraText = document.getElementById("extraContent");
+
+readMore.addEventListener("click", () => {
+  extraText.classList.add("show");
+  readMore.style.display = "none";
+});
+
+readLess.addEventListener("click", () => {
+  extraText.classList.remove("show");
+
+  // Esperar 1 segundo (1000 ms) antes de mostrar "Read More"
+  setTimeout(() => {
+    readMore.style.display = "inline";
+  }, 300);
+});
+
+
+
+const hireMeCard = document.getElementById('hireMeCard');
+
+hireMeCard.addEventListener('click', (e) => {
+  e.stopPropagation();  // Evita que otros listeners globales detecten el click
+  window.location.hash = '#projects';  // Cambia el hash sin recargar la página
+});
+
+
+
+const btn = document.querySelector('.config-button');
+const menu = document.querySelector('.config-menu');
+
+btn.addEventListener('click', (e) => {
+  e.stopPropagation();
+  menu.classList.toggle('show');
+});
+
+// Cerrar menú si se hace click fuera del botón y menú
+document.addEventListener('click', (e) => {
+  if (!menu.contains(e.target) && !btn.contains(e.target)) {
+    menu.classList.remove('show');
+  }
+});
+
+
+
+
+
+
+
+
+const languageOption = document.querySelector('.language-option');
+const languageList = document.querySelector('.language-list');
+const langButtons = document.querySelectorAll('.language-list button');
+const musicOption = document.querySelector('.music-option');
+const musicIcon = document.getElementById('music-icon');
+const musicAudio = document.getElementById('music-audio');
+
+let musicActive = false; // Música silenciada por defecto
+
+function updateMusicIcon() {
+  if (musicActive) {
+    musicIcon.classList.remove('fa-volume-mute', 'music-off');
+    musicIcon.classList.add('fa-volume-up', 'music-on');
+    musicAudio.play();
+    musicOption.setAttribute('aria-pressed', 'true');
+  } else {
+    musicIcon.classList.remove('fa-volume-up', 'music-on');
+    musicIcon.classList.add('fa-volume-mute', 'music-off');
+    musicAudio.pause();
+    musicAudio.currentTime = 0;
+    musicOption.setAttribute('aria-pressed', 'false');
+  }
+}
+
+// Inicializa el icono al cargar la página
+updateMusicIcon();
+
+// Languages dropdown toggle
+languageOption.addEventListener('click', () => {
+  const expanded = languageOption.getAttribute('aria-expanded') === 'true';
+  languageOption.setAttribute('aria-expanded', String(!expanded));
+
+  if (languageList.style.display === 'flex') {
+    languageList.style.display = 'none';
+    languageOption.querySelector('.arrow').style.transform = 'rotate(0deg)';
+    languageList.setAttribute('aria-hidden', 'true');
+  } else {
+    languageList.style.display = 'flex';
+    languageOption.querySelector('.arrow').style.transform = 'rotate(180deg)';
+    languageList.setAttribute('aria-hidden', 'false');
+  }
+});
+
+// Language selection
+langButtons.forEach(btn => {
+  btn.addEventListener('click', () => {
+    langButtons.forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    console.log('Idioma seleccionado:', btn.dataset.lang);
+  });
+});
+
+// Music toggle
+musicOption.addEventListener('click', () => {
+  musicActive = !musicActive;
+  updateMusicIcon();
+});
+
+
+
 </script>
 </body>
 </html>
+
 
