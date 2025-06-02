@@ -1320,3 +1320,166 @@ body.modal-open {
 .music-off {
   color: #9696fd !important; /* rojo apagado cuando está desactivada */
 }
+
+
+
+
+
+
+
+
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px #f2e9fc;
+}
+
+.contact-me {
+  position: relative;
+  width: 340px;
+  height: 300px;
+  margin: 10px auto;
+}
+
+.contact-me::before {
+  content: "";
+  position: absolute;
+  top: -1px; 
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-radius: 18px;
+  background: linear-gradient(90deg, #5d4eff, #a14eff, #5d4eff);
+  background-size: 200% 100%;
+  animation: moveGradient2 3s linear infinite;
+  z-index: -1;
+}
+
+/* Para tapar el centro y que solo se vea el borde */
+.contact-me::after {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  right: 3px;
+  bottom: 3px;
+  background: #200e46; /* mismo color de fondo que la card */
+  border-radius: 12px; /* un poco menor que el borde */
+  z-index: -1;
+}
+
+@keyframes moveGradient2 {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 15px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.form input {
+  background: #2d1c60;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+}
+
+.form textarea {
+  background: #2d1c60;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  color: white;
+  font-size: 14px;
+  resize: none;
+  flex-grow: 1; /* Para que ocupe el espacio restante */
+  min-height: 80px; /* Tamaño mínimo decente */
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+  color: #ffffff;
+  
+}
+
+.form button {
+  background: linear-gradient(90deg, #5d4eff, #a14eff);
+  border: none;
+  padding: 10px;
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: transform 0.2s;
+  margin-top: auto; /* Empuja el botón hacia abajo */
+}
+
+.form button:hover {
+  transform: scale(1.05);
+}
+
+
+
+
+footer {
+  position: relative;
+  left: 48%;
+  right: 50%;
+  margin-left: -50vw;
+  margin-right: -50vw;
+  width: 100vw;
+  background: linear-gradient(90deg, #5d4eff, #a14eff);
+  color: white;
+  text-align: center;
+  padding: 20px 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  border-top-left-radius: 12px;
+  border-top-right-radius: 12px;
+  box-shadow: 0 -4px 8px rgba(93, 78, 255, 0.4);
+  user-select: none;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+footer p {
+  margin: 0;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+}
+
+footer a {
+  color: #e0d7ff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: #ffffff;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+@media (max-width: 400px) {
+  footer {
+    font-size: 0.8rem;
+    padding: 15px 10px;
+  }
+}
